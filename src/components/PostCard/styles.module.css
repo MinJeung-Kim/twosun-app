@@ -1,0 +1,72 @@
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .nickname {
+        font-weight: 500;
+        padding-right: .5rem;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        .profileImage {}
+
+        .nickname {}
+
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .postImage {}
+
+
+
+        .contentWrapper {
+            display: flex;
+            align-items: center;
+
+
+
+            .content {
+                width: 48%;
+                display: -webkit-box;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+
+            }
+
+            .timestamp {
+                cursor: pointer;
+                color: gray;
+            }
+        }
+
+
+        .category {
+            font-weight: bold;
+        }
+
+    }
+
+
+    .footer {
+
+        .likeButton {}
+
+        .commentButton {}
+
+        .shareButton {}
+
+    }
+}
