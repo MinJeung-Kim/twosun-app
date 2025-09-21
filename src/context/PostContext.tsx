@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import type { TPost } from "../types/post";
 import type { TUser } from "../types/user";
+import type { TImageItem } from '../components/ImageDropzone/ImageDropzone';
 
 export type State = {
     author: TUser;
@@ -14,6 +15,10 @@ export type State = {
     setSelectedCategory: Dispatch<SetStateAction<number>>;
     selectedImage: string[];
     setSelectedImage: Dispatch<SetStateAction<string[]>>;
+    items: TImageItem[];
+    setItems: Dispatch<SetStateAction<TImageItem[]>>;
+    previewIndex: number | null;
+    setPreviewIndex: Dispatch<SetStateAction<number | null>>;
     resetPostState: () => void;
 };
 

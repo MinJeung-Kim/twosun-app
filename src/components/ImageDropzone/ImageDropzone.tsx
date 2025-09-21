@@ -23,14 +23,12 @@ const fileToDataURL = (file: File) =>
 
 
 export default function ImageDropzone() {
-    const [items, setItems] = useState<TImageItem[]>([]);
     const [isDragging, setIsDragging] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
-    const [previewIndex, setPreviewIndex] = useState<number | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
     const zoneRef = useRef<HTMLDivElement | null>(null);
     const itemsRef = useRef<TImageItem[]>([]);
-    const { setSelectedImage } = usePost();
+    const { items, setItems, previewIndex, setPreviewIndex, setSelectedImage } = usePost();
 
     useEffect(() => {
         let cancelled = false;
@@ -41,7 +39,7 @@ export default function ImageDropzone() {
             }
             try {
                 const dataUrls = await Promise.all(items.map(i => fileToDataURL(i.file)));
-                if (!cancelled) setSelectedImage(dataUrls);  // string[]
+                if (!cancelled) setSelectedImage(dataUrls);
             } catch (e) {
                 console.error(e);
             }
