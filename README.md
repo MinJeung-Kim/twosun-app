@@ -96,3 +96,10 @@ src/
 <br />
 
 ## 구현 화면
+### Home
+<img width="60%"  alt="home" src="https://github.com/user-attachments/assets/34ac89ae-c089-4663-b895-eb2bb534c910" />
+
+### Create Post
+<img width="60%"  alt="create" src="https://github.com/user-attachments/assets/d5eaba80-d080-4112-9ed0-abfa0cdb2731" />
+<img width="60%"  alt="preview" src="https://github.com/user-attachments/assets/bc3d4eed-61dd-42c1-b6bc-454a36ed10ed" />
+
