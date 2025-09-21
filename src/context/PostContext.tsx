@@ -1,66 +1,26 @@
-import {
-    createContext,
-    useContext,
-    useState,
-} from "react";
-import type { TPost } from '../types/post';
-import type { TUser } from '../types/user';
+import { createContext, useContext } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import type { TPost } from "../types/post";
+import type { TUser } from "../types/user";
 
-type State = {
-    author: TUser,
-    setAuthor: React.Dispatch<React.SetStateAction<TUser>>,
-    posts: TPost[],
-    setPosts: React.Dispatch<React.SetStateAction<TPost[]>>,
-    content: string,
-    setContent: React.Dispatch<React.SetStateAction<string>>,
-    selectedCategory: number,
-    setSelectedCategory: React.Dispatch<React.SetStateAction<number>>,
-    selectedImage: string[],
-    setSelectedImage: React.Dispatch<React.SetStateAction<string[]>>
-    resetPostState: () => void,
+export type State = {
+    author: TUser;
+    setAuthor: Dispatch<SetStateAction<TUser>>;
+    posts: TPost[];
+    setPosts: Dispatch<SetStateAction<TPost[]>>;
+    content: string;
+    setContent: Dispatch<SetStateAction<string>>;
+    selectedCategory: number;
+    setSelectedCategory: Dispatch<SetStateAction<number>>;
+    selectedImage: string[];
+    setSelectedImage: Dispatch<SetStateAction<string[]>>;
+    resetPostState: () => void;
 };
 
-const PostContext = createContext<State>({} as State);
+export const PostContext = createContext<State | undefined>(undefined);
 
-export function PostProvider({ children }: { children: React.ReactNode }) {
-    const [author, setAuthor] = useState<TUser>({
-        id: '',
-        name: '',
-        nickname: '',
-        profileImage: '',
-        verified: false,
-    });
-    const [posts, setPosts] = useState<TPost[]>([]);
-    const [content, setContent] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState<number>(1);
-    const [selectedImage, setSelectedImage] = useState<string[]>([]);
-
-    const resetPostState = () => {
-        setContent("");
-        setSelectedCategory(1);
-        setSelectedImage([]);
-    };
-
-    return (
-        <PostContext.Provider
-            value={{
-                author,
-                setAuthor,
-                posts,
-                setPosts,
-                content,
-                setContent,
-                selectedCategory,
-                setSelectedCategory,
-                selectedImage,
-                setSelectedImage,
-                resetPostState
-            }}
-        >
-            {children}
-        </PostContext.Provider>
-    );
+export function usePost(): State {
+    const ctx = useContext(PostContext);
+    if (!ctx) throw new Error("usePost는 반드시 <PostProvider> 안에서 사용해야 합니다.");
+    return ctx;
 }
-
-export const usePost = () => useContext(PostContext);
-

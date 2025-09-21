@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from './components/Footer/Footer';
-import { PostProvider } from './context/PostContext';
+import { PostProvider } from './context/PostProvider';
 import styles from "./App.module.css";
 
 function App() {
