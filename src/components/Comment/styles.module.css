@@ -1,0 +1,167 @@
+ .commentsSection {
+     border-top: 1px solid #e0e0e0;
+     padding: 16px;
+     background-color: #fafafa;
+
+     .commentInput {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         margin-bottom: 16px;
+         padding: 12px;
+         background-color: white;
+         border-radius: 8px;
+         border: 1px solid #e0e0e0;
+     }
+
+     .commentInputField {
+         flex: 1;
+         border: none;
+         outline: none;
+         font-size: 14px;
+         padding: 8px 0;
+         background: transparent;
+     }
+
+     &::placeholder {
+         color: #999;
+     }
+
+
+ }
+
+ .commentsList {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+
+     .commentItem {
+         display: flex;
+         align-items: flex-start;
+         gap: 12px;
+     }
+
+     .commentContent {
+         flex: 1;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 4px;
+
+         .commentHeader {
+             display: flex;
+             flex-direction: column;
+
+             .commentAuthor {
+                 font-weight: 600;
+                 font-size: 14px;
+                 color: #333;
+             }
+
+             .commentText {
+                 font-size: 14px;
+                 color: #666;
+                 line-height: 1.4;
+             }
+         }
+
+         .likeSection {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+
+             svg {
+                 width: 1rem;
+                 height: 1rem;
+             }
+         }
+     }
+
+     .commentTime {
+         font-size: 12px;
+         color: #999;
+         padding-left: .5rem;
+     }
+ }
+
+ @media (max-width: 1024px) {
+     .commentsSection {
+         padding: 14px;
+
+         .commentInput {
+             padding: 10px;
+             gap: 10px;
+         }
+
+         .commentItem {
+             padding: 10px;
+         }
+
+         .commentAuthor {
+             font-size: 13px;
+         }
+
+         .commentText {
+             font-size: 13px;
+         }
+     }
+ }
+
+ @media (max-width: 768px) {
+     .commentsSection {
+         padding: 12px;
+
+         .commentInput {
+             padding: 8px;
+             gap: 8px;
+             display: flex;
+             align-items: center;
+         }
+
+         .commentInput :global(img),
+         .commentItem :global(img) {
+             width: 36px;
+             height: 36px;
+         }
+
+         .commentInputField {
+             font-size: 14px;
+         }
+
+         .commentItem {
+             padding: 8px;
+             gap: 8px;
+         }
+
+         .commentAuthor {
+             font-size: 13px;
+         }
+
+         .commentText {
+             font-size: 13px;
+         }
+     }
+ }
+
+ @media (max-width: 440px) {
+     .commentsList {
+         .commentItem {
+             &:global(img) {
+                 width: 40px;
+                 height: 40px;
+             }
+
+             .commentContent {
+                 width: 100%;
+
+                 .commentAuthor {
+                     font-size: 13px;
+                 }
+
+                 .commentText {
+                     font-size: 13px;
+                 }
+             }
+         }
+     }
+ }

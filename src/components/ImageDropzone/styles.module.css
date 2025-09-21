@@ -1,0 +1,259 @@
+.container {
+    width: 100%;
+
+    .helper {
+        margin-top: 8px;
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+}
+
+.dropzone {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    border: 2px dashed #d1d5db;
+    border-radius: 16px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+
+    .hiddenInput {
+        display: none;
+    }
+
+
+    .dropzoneText {
+        pointer-events: none;
+
+        .dropzoneTitle {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .dropzoneCaption {
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+    }
+}
+
+.dragging {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.error {
+    margin-top: 12px;
+    background: #fef2f2;
+    color: #b91c1c;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 0.875rem;
+}
+
+.gallery {
+    margin-top: 24px;
+
+    .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        .count {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+    }
+}
+
+.btn {
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    color: #000;
+
+    &:hover {
+        background: #f9fafb;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    .item {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+        .itemButton {
+            display: block;
+            width: 100%;
+            border: none;
+            padding: 0;
+            background: none;
+            cursor: pointer;
+
+            .itemImg {
+                width: 100%;
+                height: 160px;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .itemFooter {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px;
+            font-size: 12px;
+            color: white;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+
+            .itemName {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .dropzone {
+        padding: 32px;
+
+        .dropzoneText {
+            .dropzoneTitle {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .grid {
+        gap: 14px;
+
+        .item {
+            .itemImg {
+                height: 150px;
+            }
+
+
+            .itemFooter {
+                flex-direction: column;
+            }
+        }
+    }
+
+    .btn {
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dropzone {
+        padding: 24px;
+
+        .dropzoneText {
+            .dropzoneTitle {
+                font-size: 1rem;
+            }
+
+            .dropzoneCaption {
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+
+        .item {
+            .itemImg {
+                height: 140px;
+            }
+
+            .itemFooter {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .dropzone {
+        padding: 12px;
+
+        .dropzoneText {
+            .dropzoneTitle {
+                font-size: 1rem;
+            }
+
+            .dropzoneCaption {
+                font-size: 0.68rem;
+            }
+        }
+    }
+
+    .grid {
+        gap: 10px;
+
+        .item {
+            .itemImg {
+                height: 120px;
+            }
+        }
+    }
+
+    .btn {
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+
+        .item {
+            .itemImg {
+                height: 160px;
+            }
+
+        }
+    }
+}

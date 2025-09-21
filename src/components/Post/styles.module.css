@@ -1,6 +1,152 @@
 .post {
+    width: var(--main-max-width);
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem
+    gap: 2rem;
+}
+
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #1da1f2;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+    }
+}
+
+
+.endMessage {
+    text-align: center;
+    padding: 2rem;
+    color: #657786;
+    font-size: 14px;
+    width: 100%;
+}
+
+
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+
+    .errorMessage {
+        color: #e0245e;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .retryButton {
+        background-color: #1da1f2;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #1991da;
+        }
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .post {
+        width: calc(var(--main-max-width) - 4rem);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .loadingContainer,
+    .errorContainer,
+    .endMessage {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .post {
+        width: 100%;
+        gap: 1rem;
+        padding: 0 0.75rem;
+    }
+
+    .loadingContainer,
+    .errorContainer,
+    .endMessage {
+        padding: 1rem;
+    }
+
+    .loadingContainer {
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border-width: 2.5px;
+        }
+    }
+
+    .errorContainer {
+        .retryButton {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .post {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    .loadingContainer,
+    .errorContainer,
+    .endMessage {
+        padding: 0.75rem;
+    }
+
+    .loadingContainer {
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border-width: 2px;
+        }
+    }
+
+    .errorContainer {
+        .retryButton {
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 18px;
+        }
+    }
+}
+
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

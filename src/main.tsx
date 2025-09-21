@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 // import NotFound from "./pages/NotFound/NotFound.tsx";
 import Home from "./pages/Home.tsx";
+import CreatePost from './pages/CreatePost/CreatePost.tsx';
 import App from "./App.tsx";
 import "@/styles/global.css";
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/create",
+        element: <CreatePost />,
       },
     ],
   },

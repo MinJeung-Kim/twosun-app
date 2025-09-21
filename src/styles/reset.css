@@ -115,6 +115,9 @@ section {
 
 body {
   line-height: 1;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 ol,
